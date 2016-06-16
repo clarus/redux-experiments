@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import App from './component/app';
 import * as Model from './redux/model.js';
 
-const store = Model.initialState;
+const state = Model.initialState;
 
 ReactDOM.render(
-  <App store={store} />,
+  <App state={state} />,
   document.getElementById('root')
 );
