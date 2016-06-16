@@ -7,5 +7,8 @@ export type t = {
 
 export const initialState: t = {
   newTodo: '',
-  todos: [],
+  todos: [
+    'First todo',
+    'Second todo'
+  ],
 };

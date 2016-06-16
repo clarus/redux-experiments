@@ -1,13 +1,17 @@
 // @flow
 import React, { Element } from 'react';
 import Todos from './todos.js';
-import * as TodosModel from '../redux/todo/model.js';
+import * as Model from '../redux/model.js';
 
-export default function App(): Element {
+type Props = {
+  store: Model.t
+};
+
+export default function App(props: Props): Element {
   return (
     <div>
       <h1>Todos</h1>
-      <Todos todos={TodosModel.initialState} />
+      <Todos todos={props.store.todos} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // @flow
 import React, { Element } from 'react';
-import * as TodosModel from '../redux/todo/model.js';
+import * as TodosModel from '../redux/todos/model.js';
 import Todo from './todo.js';
 
 type Props = {
