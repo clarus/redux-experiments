@@ -1,10 +1,13 @@
 // @flow
-import * as TodosModel from './todos/model.js';
+import * as CommonModel from './common/model.js';
+import * as IndexModel from './index/model.js';
 
 export type t = {
-  todos: TodosModel.t
+  common: CommonModel.t,
+  index: IndexModel.t
 };
 
 export const initialState: t = {
-  todos: TodosModel.initialState
+  common: CommonModel.initialState,
+  index: IndexModel.initialState
 };

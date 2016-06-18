@@ -1,5 +1,5 @@
 // @flow
-import * as TodosModel from './model.js';
+import * as Model from './model.js';
 
 export type t = {
   type: 'ChangeNew',
@@ -8,7 +8,7 @@ export type t = {
   type: 'AddNew'
 };
 
-export function reduce(state: TodosModel.t, action: t): TodosModel.t {
+export function reduce(state: Model.t, action: t): Model.t {
   switch (action.type) {
     case 'ChangeNew':
       return {
@@ -18,11 +18,7 @@ export function reduce(state: TodosModel.t, action: t): TodosModel.t {
     case 'AddNew':
       return {
         ...state,
-        newTodo: '',
-        todos: [
-          ...state.todos,
-          state.newTodo
-        ]
+        newTodo: ''
       };
     default:
       throw new Error();

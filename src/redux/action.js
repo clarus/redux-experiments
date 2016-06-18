@@ -1,18 +1,18 @@
 // @flow
-import * as TodosAction from './todos/action.js';
+import * as IndexAction from './index/action.js';
 import * as Model from './model.js';
 
 export type t = {
-  type: 'Todos',
-  action: TodosAction.t
+  type: 'Index',
+  action: IndexAction.t
 };
 
 export function reduce(state: Model.t, action: t): Model.t {
   switch (action.type) {
-    case 'Todos':
+    case 'Index':
       return {
         ...state,
-        todos: TodosAction.reduce(state.todos, action.action)
+        index: IndexAction.reduce(state.index, action.action)
       };
     default:
       throw new Error();

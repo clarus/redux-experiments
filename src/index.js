@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './component/app';
+import App from './view/app';
 import * as Action from './redux/action.js';
 import * as Model from './redux/model.js';
 
@@ -19,11 +19,8 @@ let state = Model.initialState;
 
 function dispatch(action: Action.t): void {
   state = Action.reduce(state, action);
-  console.log(action);
+  console.log(action, state);
   render();
 }
 
 render();
-
-import * as Route from './route.js';
-Route.test();

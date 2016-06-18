@@ -1,6 +1,6 @@
 // @flow
 import React, { Element } from 'react';
-import Todos from './todos.js';
+import Index from './index/index.js';
 import * as Action from '../redux/action.js';
 import * as Model from '../redux/model.js';
 
@@ -13,9 +13,10 @@ export default function App(props: Props): Element {
   return (
     <div>
       <h1>Todos</h1>
-      <Todos
+      <Index
         dispatch={props.dispatch}
-        todos={props.state.todos}
+        index={props.state.index}
+        todos={props.state.common.todos}
       />
     </div>
   );
