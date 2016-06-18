@@ -19,6 +19,7 @@ let state = Model.initialState;
 
 function dispatch(action: Action.t): void {
   state = Action.reduce(state, action);
+  console.log(action);
   render();
 }
 

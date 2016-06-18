@@ -22,6 +22,15 @@ function handleChangeInput(props: Props, event: SyntheticEvent): void {
   }
 }
 
+function handleClickAdd(props: Props): void {
+  props.dispatch({
+    type: 'Todos',
+    action: {
+      type: 'AddNew'
+    }
+  })
+}
+
 export default function Todos(props: Props): Element {
   return (
     <div>
@@ -30,6 +39,12 @@ export default function Todos(props: Props): Element {
         type="text"
         value={props.todos.newTodo}
       />
+    <button
+      onClick={() => handleClickAdd(props)}
+      type="button"
+    >
+      Add
+    </button>
       <ul>
         {props.todos.todos.map((todo, index) =>
           <Todo key={index} value={todo} />
