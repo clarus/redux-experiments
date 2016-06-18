@@ -1,14 +1,23 @@
 // @flow
+import * as CommonAction from './common/action.js';
 import * as IndexAction from './index/action.js';
 import * as Model from './model.js';
 
 export type t = {
+  type: 'Common',
+  action: CommonAction.t
+} | {
   type: 'Index',
   action: IndexAction.t
 };
 
 export function reduce(state: Model.t, action: t): Model.t {
   switch (action.type) {
+    case 'Common':
+      return {
+        ...state,
+        common: CommonAction.reduce(state.common, action.action)
+      };
     case 'Index':
       return {
         ...state,

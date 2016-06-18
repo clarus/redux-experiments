@@ -19,7 +19,7 @@ const routes: {[key: string]: (...args: string[]) => t} = {
   })
 };
 
-function parse(url: string): ?t {
+export function parse(url: string): ?t {
   return _.map(routes, (run, pattern) => {
     const result: ?(string[]) = pathToRegexp(pattern).exec(url);
     if (result) {
@@ -29,7 +29,7 @@ function parse(url: string): ?t {
   }).find(route => !!route);
 }
 
-function print(route: t): string {
+export function print(route: t): string {
   switch (route.type) {
     case 'index':
       return '/'
