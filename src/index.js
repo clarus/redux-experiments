@@ -24,3 +24,6 @@ function dispatch(action: Action.t): void {
 }
 
 render();
+
+import * as Route from './route.js';
+Route.test();
