@@ -12,6 +12,9 @@ export type t = {
 };
 
 export function reduce(state: Model.t, action: t): Model.t {
+  if (action.type === '@@redux/INIT') {
+    return state;
+  }
   switch (action.type) {
     case 'Common':
       return {

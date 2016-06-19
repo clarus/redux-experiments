@@ -27,6 +27,7 @@
     "path-to-regexp": "^1.5.3",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "redux": "^3.5.2",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
