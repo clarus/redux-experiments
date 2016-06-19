@@ -1,4 +1,3 @@
-// @flow
 declare module 'lodash' {
   declare var exports: {
     map: <K, V1, V2>(

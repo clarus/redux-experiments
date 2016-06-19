@@ -11,12 +11,12 @@ export type t = {
 
 const routes: {[key: string]: (...args: string[]) => t} = {
   '/': () => ({
-    type: 'Index'
+    type: 'Index',
   }),
   '/todo/:id': id => ({
     type: 'Todo',
-    id
-  })
+    id,
+  }),
 };
 
 export function parse(url: string): ?t {
@@ -31,10 +31,10 @@ export function parse(url: string): ?t {
 
 export function print(route: t): string {
   switch (route.type) {
-    case 'index':
-      return '/'
-    case 'todo':
-      return '/todo/' + route.id;
+    case 'Index':
+      return '/';
+    case 'Todo':
+      return `/todo/${route.id}`;
     default:
       throw new Error();
   }

@@ -16,18 +16,18 @@ export function reduce(state: Model.t, action: t): Model.t {
     case 'Add':
       return {
         ...state,
-        ['id' + String(Object.keys(state).length)]: {
+        [`id${Object.keys(state).length}`]: {
           text: '',
-          title: action.title
-        }
+          title: action.title,
+        },
       };
     case 'Edit':
       return {
         ...state,
         [action.id]: {
           text: action.text,
-          title: action.title
-        }
+          title: action.title,
+        },
       };
     default:
       throw new Error();

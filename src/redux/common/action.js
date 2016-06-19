@@ -16,12 +16,12 @@ export function reduce(state: Model.t, action: t): Model.t {
     case 'Route':
       return {
         ...state,
-        route: RouteAction.reduce(state.route, action.action)
+        route: RouteAction.reduce(state.route, action.action),
       };
     case 'Todos':
       return {
         ...state,
-        todos: TodosAction.reduce(state.todos, action.action)
+        todos: TodosAction.reduce(state.todos, action.action),
       };
     default:
       throw new Error();

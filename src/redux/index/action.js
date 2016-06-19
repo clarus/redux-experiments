@@ -13,12 +13,12 @@ export function reduce(state: Model.t, action: t): Model.t {
     case 'ChangeNew':
       return {
         ...state,
-        newTodo: action.value
+        newTodo: action.value,
       };
     case 'AddNew':
       return {
         ...state,
-        newTodo: ''
+        newTodo: '',
       };
     default:
       throw new Error();

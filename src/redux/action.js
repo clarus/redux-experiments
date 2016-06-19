@@ -16,12 +16,12 @@ export function reduce(state: Model.t, action: t): Model.t {
     case 'Common':
       return {
         ...state,
-        common: CommonAction.reduce(state.common, action.action)
+        common: CommonAction.reduce(state.common, action.action),
       };
     case 'Index':
       return {
         ...state,
-        index: IndexAction.reduce(state.index, action.action)
+        index: IndexAction.reduce(state.index, action.action),
       };
     default:
       throw new Error();

@@ -9,5 +9,5 @@ export type t = {
 
 export const initialState: t = {
   common: CommonModel.initialState,
-  index: IndexModel.initialState
+  index: IndexModel.initialState,
 };

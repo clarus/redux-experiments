@@ -7,7 +7,9 @@ import * as Action from './redux/action.js';
 import * as Model from './redux/model.js';
 import * as Route from './route.js';
 
-function render() {
+let state = Model.initialState;
+
+function render(): void {
   ReactDOM.render(
     <App
       dispatch={dispatch}
@@ -17,12 +19,10 @@ function render() {
   );
 }
 
-let state = Model.initialState;
-
 function dispatch(action: Action.t): void {
   state = Action.reduce(state, action);
   console.log(action, state);
-  render();
+  render(dispatch);
 }
 
 const history = createHistory();
@@ -34,8 +34,8 @@ history.listen(location => {
       type: 'Common',
       action: {
         type: 'Route',
-        action: route
-      }
+        action: route,
+      },
     });
   }
 });

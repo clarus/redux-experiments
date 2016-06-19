@@ -5,5 +5,5 @@ export type t = {
 };
 
 export const initialState: t = {
-  newTodo: 'New todo'
+  newTodo: 'New todo',
 };

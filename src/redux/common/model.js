@@ -9,5 +9,5 @@ export type t = {
 
 export const initialState: t = {
   route: RouteModel.initialState,
-  todos: TodosModel.initialState
+  todos: TodosModel.initialState,
 };
