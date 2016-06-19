@@ -5,6 +5,13 @@ declare module 'redux' {
     subscribe: (listener: () => void) => void
   }
 
+  declare type Middleware<S, A> =
+    (store: { getState: () => S, dispatch: (action: A) => void }) =>
+    (next: (action: A) => A) =>
+    A;
+
+  declare var applyMiddleware: Function;
+
   declare function createStore<S, A>(
     reducer: (state: S, action: A) => S,
     initialState: S)

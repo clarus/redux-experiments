@@ -6,9 +6,14 @@ import App from './view/app';
 import * as Action from './redux/action.js';
 import * as Model from './redux/model.js';
 import * as Route from './route.js';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import createLogger from 'redux-logger';
 
-const store = createStore(Action.reduce, Model.initialState);
+const store = createStore(
+  Action.reduce,
+  Model.initialState,
+  applyMiddleware(createLogger())
+);
 
 function render(): void {
   ReactDOM.render(
