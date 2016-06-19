@@ -26,7 +26,7 @@ export function ret<E, A>(value: A): t<E, A> {
 export function call<E, A>(action: E): t<E, A> {
   return {
     type: 'Call',
-    action
+    action,
   };
 }
 
@@ -43,7 +43,7 @@ export function all<E, A, B>(first: t<E, A>, second: t<E, B>): t<E, [A, B]> {
   return {
     type: 'All',
     first,
-    second
+    second,
   };
 }
 
@@ -57,13 +57,13 @@ export function run<E, A>(
     case 'Call':
       return dispatch(program.action);
     case 'Then': {
-      const {first, second} = program;
+      const { first, second } = program;
       return run(dispatch, first).then(result =>
         run(dispatch, second(result))
       );
     }
     case 'All': {
-      const {first, second} = program;
+      const { first, second } = program;
       return (Promise.all([run(dispatch, first), run(dispatch, second)]): any);
     }
     default:

@@ -58,3 +58,43 @@ function sum(x: number, y: number): Tree.t<void, number> {
 
 Tree.run(() => Promise.resolve(), incr(12)).then(result => console.log(result));
 Tree.run(() => Promise.resolve(), sum(12, 13)).then(result => console.log(result));
+
+function wait(duration: number): Promise<void> {
+  return new Promise(resolve => window.setTimeout(resolve, duration));
+}
+
+type E = {
+  type: 'Two',
+  duration: number
+} | {
+  type: 'Three',
+  duration: number
+};
+
+function two(duration: number): Tree.t<E, number> {
+  return Tree.call({
+    type: 'Two',
+    duration,
+  });
+}
+
+function three(duration: number): Tree.t<E, string> {
+  return Tree.call({
+    type: 'Three',
+    duration,
+  });
+}
+
+function dispatchE(action: E): Promise<number | string> {
+  switch (action.type) {
+    case 'Two':
+      return wait(1000 * action.duration).then(() => 2);
+    case 'Three':
+      return wait(1000 * action.duration).then(() => 'three');
+    default:
+      throw new Error();
+  }
+}
+
+Tree.run(dispatchE, two(2)).then(result => console.log(result));
+Tree.run(dispatchE, three(3)).then(result => console.log(result));
