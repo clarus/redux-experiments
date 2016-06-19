@@ -43,3 +43,18 @@ history.listen(location => {
 });
 
 render();
+
+import * as Tree from './redux/middleware/tree.js';
+
+function incr(x: number): Tree.t<void, number> {
+  return Tree.then(Tree.ret(x), r => Tree.ret(r + 1));
+}
+
+function sum(x: number, y: number): Tree.t<void, number> {
+  return Tree.then(Tree.all(Tree.ret(x), Tree.ret(y)), results =>
+    Tree.ret(results[0] + results[1])
+  );
+}
+
+Tree.run(() => Promise.resolve(), incr(12)).then(result => console.log(result));
+Tree.run(() => Promise.resolve(), sum(12, 13)).then(result => console.log(result));
