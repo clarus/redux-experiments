@@ -9,7 +9,7 @@ type Props = {
   state: Model.t
 };
 
-export default function App(props: Props): Element {
+export default function App(props: Props): Element<*> {
   return (
     <div>
       <h1>Todos</h1>

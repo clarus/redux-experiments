@@ -34,7 +34,7 @@ function handleClickAdd(props: Props): void {
   });
 }
 
-export default function Index(props: Props): Element {
+export default function Index(props: Props): Element<*> {
   return (
     <div>
       <input
